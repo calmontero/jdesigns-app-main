@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import 'react-bootstrap/dist/react-bootstrap.min.js';
 //import { BASE_URL } from "./constraints/index";
 import Navigation from "./components/Navigation/Navigation";
+import JobContainer from "./components/JobContainer/JobContainer";
 import Page from "./pages/page";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home/>} />
-        <Route path="/jobs" element={<Page title={"Servicios"} />} />
+        <Route path="/jobs" element={<JobContainer />} />
         <Route path="/testimonials" element={<Page title={"Testimonios"} />} />
         <Route path="/downloads" element={<Page title={"Descargas"} />} />
       </Routes>
