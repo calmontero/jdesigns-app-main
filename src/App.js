@@ -13,7 +13,7 @@ function App() {
     <>
       <Navigation />
       <Routes>
-        <Route exact path="/" element={<Home/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/jobs" element={<JobContainer />} />
         <Route path="/testimonials" element={<Page title={"Testimonios"} />} />
         <Route path="/downloads" element={<Page title={"Descargas"} />} />
