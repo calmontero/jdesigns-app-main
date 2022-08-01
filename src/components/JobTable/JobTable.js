@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import JobList from "../JobList/JobList";
 import "../../App.scss";
 
-function JobTable({ jobList, onEditJob }) {
+function JobTable({ jobList, onEditJob, onDelJob }) {
 
     return (
         <div className="job-table">
@@ -11,14 +11,14 @@ function JobTable({ jobList, onEditJob }) {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                    <th>#</th>
                     <th>Title</th>
+                    <th>Desc</th>
                     <th>Image Link</th>
                     </tr>
                 </thead>
                 {
                 jobList && jobList.map((j) => {
-                    return <JobList jobsList={j} onEditJob={onEditJob} />
+                    return <JobList jobsList={j} onEditJob={onEditJob} onDelJob={onDelJob} />
                 })
             }
             </Table>

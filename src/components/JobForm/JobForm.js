@@ -7,7 +7,8 @@ import "../../App.scss";
 
 const initialState = {
   title: '',
-  image_link: ''
+  image_link: '',
+  text: ''
 };
 
 function Jobs({ onAddJob }) {
@@ -50,6 +51,11 @@ function Jobs({ onAddJob }) {
           <Form.Control required type="text" placeholder="Ingrese nombre del Servicio" value={job.title} onChange={e => setField('title', e.target.value)}/>
           </Form.Group>
   
+          <Form.Group className="mb-3" >
+          <Form.Label>Descripción</Form.Label>
+          <Form.Control required type="text" placeholder="Ingrese una descripción" value={job.text} onChange={e => setField('text', e.target.value)}/>
+          </Form.Group>
+
           <Form.Group className="mb-3" >
           <Form.Label>Link de Imagen</Form.Label>
           <Form.Control required type="text" placeholder="Ingrese link de Imagen" value={job.image_link} onChange={e => setField('image_link', e.target.value)}  />

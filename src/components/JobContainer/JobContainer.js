@@ -15,10 +15,14 @@ function JobContainer() {
     function handleAddJob(addedJob) {
         setJobs((job) => [...job, addedJob]);
     }
-/*
-    function handleDeleteJob(deletedJob) {
 
-    } */
+    function handleDeleteJob(onDelJob) {
+        fetch(BASE_URL+ `/jobs/${onDelJob}`, {
+            method: "DELETE",
+          });
+        const updatedJobs = job.filter((j) => j.id !== onDelJob);
+        setJobs(updatedJobs);
+    } 
 
     function handleEditJob(id) {
 
@@ -27,7 +31,7 @@ function JobContainer() {
     return (
         <div className="job-container">
             <JobForm onAddJob={handleAddJob} />
-            <JobTable jobList={job} onEditJob={handleEditJob}  />
+            <JobTable jobList={job} onEditJob={handleEditJob} onDelJob={handleDeleteJob} />
         </div>
     );
 }
