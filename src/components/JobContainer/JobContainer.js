@@ -5,6 +5,8 @@ import JobTable from "../JobTable/JobTable";
 
 function JobContainer() {
     const [job, setJobs] = useState([]);
+    const [jobUpdate, setJobUpdate] = useState([]);
+    const [isEditMode, setIsEditMode] = useState(false);
 
     useEffect(() => {
         fetch(BASE_URL + "/jobs")
@@ -24,13 +26,15 @@ function JobContainer() {
         setJobs(updatedJobs);
     } 
 
-    function handleEditJob(id) {
-
+    function handleEditJob(onEditJob) {
+        setIsEditMode(true);
+        const updatedJobs = job.filter((j) => j.id === onEditJob);
+        setJobUpdate(updatedJobs);
     }
 
     return (
         <div className="job-container">
-            <JobForm onAddJob={handleAddJob} />
+            <JobForm onEditMode={isEditMode} onAddJob={handleAddJob} jobUpdate={jobUpdate} />
             <JobTable jobList={job} onEditJob={handleEditJob} onDelJob={handleDeleteJob} />
         </div>
     );
